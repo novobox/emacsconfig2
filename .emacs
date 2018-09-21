@@ -1,6 +1,5 @@
 (defvar emacsrootpath "~/emacsconfig_2/")
 (setq user-emacs-directory (file-truename "~/emacsconfig_2/.emacs.d/"))
-(setq yas-snippet-dirs (concat emacsrootpath ".emacs.d/snippets/"))
 
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -16,7 +15,22 @@
 
 ;(add-to-list 'load-path (concat emacsrootpath ".emacs.d/"))
 
-;;(require 'php-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTO COMPLETE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; CUSTOM SNIPPETS
+(setq yas-snippet-dirs (concat emacsrootpath ".emacs.d/snippets/"))
+
 (require 'yasnippet)
 (yas-reload-all)
 (yas-global-mode)
+
+;;PHP
+(add-hook 'php-mode-hook '(lambda ()
+                           (auto-complete-mode t)
+                           (require 'ac-php)
+                           (setq ac-sources  '(ac-source-php ) )
+                           (yas-global-mode 1)
+
+                           (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
+                           (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back   ) ;go back
+                           ))
