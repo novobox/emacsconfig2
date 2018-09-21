@@ -1,0 +1,4 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: substr
+# --
+substr(${string $string}, ${int $start}${[, int $length ]} )

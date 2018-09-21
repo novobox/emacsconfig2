@@ -1,0 +1,4 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: in_array(..., ..., ...)
+# --
+in_array(${mixed $needle}, ${array $haystack}${[, bool $strict = FALSE ]})

@@ -1,0 +1,20 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("data_1"
+ (filename . "/var/www/ugcb/www/sites/all/modules/local/ugcb_webform/tests/datas/_data_content.inc")
+ (front-context-string . "_data_content_ad")
+ (rear-context-string . ");\n}\n\n\nfunction ")
+ (position . 1643))
+("super"
+ (filename . "/var/www/ugcb/www/sites/all/modules/local/ugcb_webform/tests/datas/data_sets/sample2/components_evt_data.inc")
+ (front-context-string . "$step = max(arra")
+ (rear-context-string . "nts = array();\n\n")
+ (position . 23823))
+("define"
+ (filename . "/var/www/ugcb/www/sites/all/modules/local/ugcb_webform/tests/datas/data_sets/sample2/components_evt_data.inc")
+ (front-context-string . "  $all_component")
+ (rear-context-string . ",32,33,34);\n\n\n\n\n")
+ (position . 459))
+)
