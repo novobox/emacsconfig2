@@ -34,3 +34,10 @@
                            (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
                            (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back   ) ;go back
                            ))
+
+;; Themes
+(add-to-list 'custom-theme-load-path
+	                  (file-name-as-directory (concat emacsrootpath ".emacs.d/themes/")))
+
+;;(load-theme 'manoj-dark)
+;;(load-theme 'cobalt)
