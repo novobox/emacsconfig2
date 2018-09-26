@@ -57,11 +57,18 @@
 	                  (file-name-as-directory (concat emacsrootpath ".emacs.d/themes/")))
 ;; Loading theme
 (if (is-in-terminal)
-    (load-theme 'manoj-dark t)
+    (load-theme 'manoj-dark t);; (load-theme 'molokai t)
  (load-theme 'dracula t))
 
 ;;(load-theme 'manoj-dark)
 ;;(load-theme 'cobalt)
+
+
+;; ido
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-flex-matching t) ;; enable fuzzy matching
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; CUSTOM BINDS ;;;;;;;;;;;;;;;;;;;;;;;;
