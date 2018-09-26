@@ -1,6 +1,23 @@
 (defvar emacsrootpath "~/emacsconfig_2/")
 (setq user-emacs-directory (file-truename "~/emacsconfig_2/.emacs.d/"))
 
+;; Check is in terminal functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun is-in-terminal()
+      (not (display-graphic-p)))
+(defmacro when-term (&rest body)
+  "Works just like `progn' but will only evaluate expressions in VAR when Emacs is running in a terminal else just nil."
+  `(when (is-in-terminal) ,@body))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; hide that tucking foolbar (in terminal)
+(when-term
+    (tool-bar-mode -1)
+    (menu-bar-mode 0))
+
+;; and the startup message too
+(setq inhibit-startup-message t)
+(setq visible-bell t)
+
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
 		    (not (gnutls-available-p))))
@@ -38,6 +55,25 @@
 ;; Themes
 (add-to-list 'custom-theme-load-path
 	                  (file-name-as-directory (concat emacsrootpath ".emacs.d/themes/")))
+;; Loading theme
+(if (is-in-terminal)
+    (load-theme 'manoj-dark t)
+ (load-theme 'dracula t))
 
 ;;(load-theme 'manoj-dark)
 ;;(load-theme 'cobalt)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; CUSTOM BINDS ;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key "\C-x\C-g"  'goto-line)
+(global-set-key '[C-i] 'indent-region)
+
+
+;; Tabs & spaces
+;; ---------------------------------------------------------------------
+;; Set tabs to 4 spaces and replace all tabs with spaces
+(setq default-tab-width 4)
+(setq default-tab-width 8) ;; XXX pour conneries de notre ami MrLex
+(setq-default indent-tabs-mode nil)
+

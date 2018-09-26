@@ -1,0 +1,28 @@
+#name : template1
+# --
+#!/bin/bash
+
+DIR=$( cd "$( dirname "\${BASH_SOURCE[0]}" )" && pwd )
+OPTS=$(getopt -o vts: --long help,verbose,site_slug:,site_title: -n 'parse-options' -- "\$@")
+
+eval set -- "\$OPTS"
+
+while true; do
+    case "\$1" in
+        -c | --config ) ; shift; shift ;;
+        -f | --src ) ; shift; shift ;;
+        -o | --output ) ; shift; shift ;;
+        -s | --search ) ; shift; shift ;;
+        -r | --replace ) ; shift; shift ;;
+        
+        --verbose) ; shift ;;
+        -- ) shift; break ;;
+        * ) help break ;;
+    esac
+done
+
+help() {
+  echo "help"
+}
+
+
