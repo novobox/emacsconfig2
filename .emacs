@@ -70,11 +70,10 @@
 (setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; CUSTOM BINDS ;;;;;;;;;;;;;;;;;;;;;;;;
-
-(global-set-key "\C-x\C-g"  'goto-line)
-(global-set-key '[C-i] 'indent-region)
+;;;;;;;;;;;;;;;;;;; CUSTOM NOVMACS TOOLS ;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path (concat emacsrootpath ".emacs.d/novmacs/"))
+;; CUSTOM BINDS
+(require 'novmacs-bind)
 
 
 ;; Tabs & spaces
